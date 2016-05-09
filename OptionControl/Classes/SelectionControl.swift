@@ -8,17 +8,17 @@
 
 import UIKit
 
-enum SelectionType{
+public enum SelectionType{
     case SingleSelectionType
     case MutilSelectionType
 }
 
-protocol SelectionControlDelegate {
+public protocol SelectionControlDelegate {
    func selectionControl(selectionControl:SelectionControl,didSelectedOptions selecedIndexs:Array<Int>?)
 }
 
 
-protocol SelectionControlDataSource {
+public protocol SelectionControlDataSource {
     
     func titlesForSeletionOptionItems( selectionControl:SelectionControl   )-> Array<String>
     
@@ -33,17 +33,17 @@ protocol SelectionControlDataSource {
 
 
 
-class SelectionControl: UIView ,SeletionOptionItemDelegate{
+public class SelectionControl: UIView ,SeletionOptionItemDelegate{
 
     var selectionType:SelectionType = .SingleSelectionType
     
-    var delegate : SelectionControlDelegate?
+   public var delegate : SelectionControlDelegate?
     
-    var dataSource : SelectionControlDataSource?
+   public var dataSource : SelectionControlDataSource?
     
-    lazy var selectedIndexs :Array<Int>? = Array<Int>()
+   public lazy var selectedIndexs :Array<Int>? = Array<Int>()
     
-    lazy var selectionOptions :NSMutableArray = {
+   public lazy var selectionOptions :NSMutableArray = {
         
         return NSMutableArray()
     }()
@@ -84,7 +84,7 @@ class SelectionControl: UIView ,SeletionOptionItemDelegate{
     }
 
    
-    convenience  init(titles:Array<String>,selectedIndexs: Array<Int>?,selectionType:SelectionType?,unselectedImage:String,selectedImage:String,backgroundColorForSeletionOptionItems backgroundColor:UIColor) {
+   public convenience  init(titles:Array<String>,selectedIndexs: Array<Int>?,selectionType:SelectionType?,unselectedImage:String,selectedImage:String,backgroundColorForSeletionOptionItems backgroundColor:UIColor) {
         self.init()
 
         var index = 0
@@ -136,7 +136,7 @@ class SelectionControl: UIView ,SeletionOptionItemDelegate{
 
 
     
-    override func willMoveToSuperview(newSuperview: UIView?) {
+    override public func willMoveToSuperview(newSuperview: UIView?) {
         
         if let  _ = self.dataSource{
             let titles = dataSource!.titlesForSeletionOptionItems(self)
@@ -191,7 +191,7 @@ class SelectionControl: UIView ,SeletionOptionItemDelegate{
     
     
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         
         
         

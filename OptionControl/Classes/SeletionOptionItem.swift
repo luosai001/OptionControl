@@ -15,8 +15,10 @@ protocol SeletionOptionItemDelegate{
 
 class SeletionOptionItem: UIView,UIGestureRecognizerDelegate {
 
-     var delegate :SeletionOptionItemDelegate?
+    var delegate :SeletionOptionItemDelegate?
     
+    
+        let boudle = NSBundle.myLibraryBundle()
      lazy var imageView: UIImageView? = {
         
         let imageView = UIImageView()
@@ -44,9 +46,11 @@ class SeletionOptionItem: UIView,UIGestureRecognizerDelegate {
             
             if  (newValue != nil) && newValue!.boolValue == true {
                 
-                self.imageView!.image = UIImage(named: selectedImage!)
+                self.imageView!.image = UIImage(named: selectedImage!) ?? UIImage(named: "zf_select", inBundle: boudle, compatibleWithTraitCollection: nil)
+
             }else{
-                self.imageView!.image = UIImage(named: unselectedImage!)
+                self.imageView!.image = UIImage(named: unselectedImage!) ??
+                UIImage(named: "zf_select", inBundle: boudle, compatibleWithTraitCollection: nil)
 
             }
         
@@ -72,7 +76,7 @@ class SeletionOptionItem: UIView,UIGestureRecognizerDelegate {
         
     }
     
-    override func willMoveToSuperview(newSuperview: UIView?) {
+   override func willMoveToSuperview(newSuperview: UIView?) {
         
         self.imageView!.translatesAutoresizingMaskIntoConstraints = false
         self.titleLable!.translatesAutoresizingMaskIntoConstraints = false
@@ -80,7 +84,7 @@ class SeletionOptionItem: UIView,UIGestureRecognizerDelegate {
         
     }
     
-    func tapGestureRecognizer(tapGestureRecognizer:UITapGestureRecognizer){
+   func tapGestureRecognizer(tapGestureRecognizer:UITapGestureRecognizer){
         
         if let delegate = self.delegate {
             delegate.seletionOptionItemValueDidChagnge(self)
@@ -144,4 +148,18 @@ class SeletionOptionItem: UIView,UIGestureRecognizerDelegate {
 
   }
 
+}
+
+extension NSBundle{
+    
+    class func myLibraryBundle()->NSBundle{
+        return NSBundle.init(URL: self.myLibraryBundleURL())!
+    }
+    
+    class func myLibraryBundleURL()->NSURL{
+        let bundle = NSBundle.init(forClass: SelectionControl.classForCoder())
+        return bundle.URLForResource("OptionControl", withExtension: "bundle")!
+        
+    }
+    
 }

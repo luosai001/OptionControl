@@ -2,18 +2,18 @@
 
 Pod::Spec.new do |s|
   s.name             = "OptionControl"
-  s.version          = "0.1.0"
+  s.version          = "1.0.0"
   s.summary          = "OptionControl for SingleOption and MutilOption"
 
   s.description      = <<-DESC
     OptionControl for SingleOption and MutilOption that helps you
                        DESC
 
-  s.homepage         = "https://github.com/luosai0103/OptionControl"
+  s.homepage         = "https://github.com/luosai001/OptionControl"
 
   s.license          = 'MIT'
   s.author           = { "luosai" => "luosai19910103@163.com" }
-  s.source           = { :git => "https://github.com/luosai0103/OptionControl.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/luosai001/OptionControl.git", :tag => s.version.to_s }
 
 
   s.ios.deployment_target = '8.0'
