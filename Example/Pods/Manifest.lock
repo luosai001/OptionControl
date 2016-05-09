@@ -1,0 +1,14 @@
+PODS:
+  - OptionControl (0.1.0)
+
+DEPENDENCIES:
+  - OptionControl (from `../`)
+
+EXTERNAL SOURCES:
+  OptionControl:
+    :path: ../
+
+SPEC CHECKSUMS:
+  OptionControl: 4671a38512d1725c80ea03f936140fcd605210d2
+
+COCOAPODS: 0.39.0

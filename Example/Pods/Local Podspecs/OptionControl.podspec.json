@@ -1,0 +1,19 @@
+{
+  "name": "OptionControl",
+  "version": "0.1.0",
+  "summary": "A short description of OptionControl.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/OptionControl",
+  "license": "MIT",
+  "authors": {
+    "luosai": "luosai19910103@163.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/OptionControl.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "OptionControl/Classes/**/*"
+}
